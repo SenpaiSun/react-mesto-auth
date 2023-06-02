@@ -49,3 +49,10 @@
 @import url(./blocks/popup/__add-avatar/popup__add-avatar.css);
 @import url(./blocks/popup/__save-avatar/popup__save-avatar.css);
 @import url(./blocks/profile/__button/profile__button.css);
+@import url(./blocks/popup-auth/popup-auth.css);
+@import url(./blocks/popup-auth/__auth-header/popup-auth__auth-header.css);
+@import url(./blocks/popup-auth/__auth-input/popup-auth__auth-input.css);
+@import url(./blocks/popup-auth/__auth-confirm/popup-auth__auth-confirm.css);
+@import url(./blocks/popup-auth/__page/popup-auth__page.css);
+@import url(./blocks/popup/__checkout-auth/popup__checkout-auth.css);
+@import url(./blocks/popup/__checkout-image/popup__checkout-image.css)

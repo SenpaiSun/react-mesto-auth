@@ -9,7 +9,9 @@ import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup'
 import AddPlacePopup from './AddPlacePopup'
 import api from "../utils/api"
-import AuthPopup from './AuthPopup'
+import Login from './Login'
+import Register from './Register'
+import PageNotFound from './PageNotFound'
 import {CurrentUserContext} from '../contexts/CurrentUserContext'
 import {AppContext} from '../contexts/AppContext'
 
@@ -153,8 +155,9 @@ function App() {
                     <Footer />
                   </>
                 } />
-                <Route path='/sign-up' element={<AuthPopup/>}/>
-                <Route path='/sign-in' />
+                <Route path='/sign-up' element={<Register/>}/>
+                <Route path='/sign-in' element={<Login/>}/>
+                <Route path='*' element={<PageNotFound/>}/>
               </Routes>
             </div>
           </AppContext.Provider>

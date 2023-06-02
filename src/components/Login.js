@@ -1,8 +1,8 @@
+import React from "react";
+import AuthPopup from "./AuthPopup"
 
-function Login() {
+export default function Login() {
   return (
-    <>
-      <p></p>
-    </>
+    <AuthPopup title={'Вход'} confirmButton={'Войти'}/>
   )
 }

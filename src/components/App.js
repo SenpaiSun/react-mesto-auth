@@ -8,7 +8,7 @@ import ImagePopup from './ImagePopup'
 import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup'
 import AddPlacePopup from './AddPlacePopup'
-import api from "../utils/api"
+import { api, apiAuth } from '../utils/api'
 import Login from './Login'
 import Register from './Register'
 import PageNotFound from './PageNotFound'
@@ -131,13 +131,28 @@ function App() {
     })
   }
 
+  function userRegister() {
+    apiAuth.userRegister()
+    .then()
+  }
+
+  function userLogin() {
+    apiAuth.userRegister()
+    .then()
+  }
+
+  function userToken() {
+    apiAuth.userRegister()
+    .then()
+  }
+
   return (
           <AppContext.Provider value={{ isLoading, closeAllPopups, isOpen }}>
             <div className='root'>
               <Routes>
                 <Route path='/' element={
                   <>
-                    <Header />
+                    <Header titleHeader={'Выйти'} redirect={'sign-in'} email='SenpaiSun@yandex.ru'/>
                     <CurrentUserContext.Provider value={currentUser}>
                       {currentUser && <Main onCards={cards} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} onCardLike={handleCardLike} onCardDelete={handleCardDelete} />}
 
@@ -155,8 +170,8 @@ function App() {
                     <Footer />
                   </>
                 } />
-                <Route path='/sign-up' element={<Register/>}/>
-                <Route path='/sign-in' element={<Login/>}/>
+                <Route path='/sign-up' element={<Register titleHeader={'Вход'} redirect='/sign-in'/>}/>
+                <Route path='/sign-in' element={<Login titleHeader={'Регистрация'} redirect='/sign-up'/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
               </Routes>
             </div>

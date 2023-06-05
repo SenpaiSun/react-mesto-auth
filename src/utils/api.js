@@ -103,11 +103,55 @@ export class Api {
     })
     .then(res => this._checkError(res))
   }
+
+  userRegister(data) {
+    return fetch(`${this._address}/signup`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        "password": data.password,
+        "email": data.email
+      })
+    })
+    .then(res => this._checkError(res))
+  }
+
+  userLogin(data) {
+    return fetch(`${this._address}/signin`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        "password": data.password,
+        "email": data.email
+      })
+    })
+    .then(res => this._checkError(res))
+  }
+
+  userToken(data) {
+    return fetch(`${this._address}/users/me`, {
+      method: 'POST',
+      headers: this.headers,
+      /*"Authorization" : `Bearer ${token}`*/
+      body: JSON.stringify({
+        "password": data.password,
+        "email": data.email
+      })
+    })
+    .then(res => this._checkError(res))
+  }
 }
+
+
 
 const api = new Api({baseUrl: 'https://nomoreparties.co/v1/cohort-64', headers: {
   authorization: 'd81e98fe-040e-4544-8267-6245eceaf2db',
   "Content-Type": "application/json"
 }})
 
-export default api
+const apiAuth = new Api({baseUrl: 'https://auth.nomoreparties.co', headers: {
+  authorization: 'd81e98fe-040e-4544-8267-6245eceaf2db',
+  "Content-Type": "application/json"
+}})
+
+export { api, apiAuth };

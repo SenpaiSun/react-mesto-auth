@@ -14,20 +14,24 @@ import Register from './Register'
 import PageNotFound from './PageNotFound'
 import {CurrentUserContext} from '../contexts/CurrentUserContext'
 import {AppContext} from '../contexts/AppContext'
+import Union from '../image/Union.png'
+import UnionCancel from '../image/UnionCancel.png'
 
 
 
 
 function App() {
-
+  const [registerSuccess, setRegisterSuccess] = React.useState(false)
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  const [isEditRegisterPopupOpen, setEditRegisterPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null)
   const [currentUser, setCurrentUser] = React.useState(null)
   const [cards, setCards] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(false);
-  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard
+  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard || isEditRegisterPopupOpen
+  const [isStateTooltip, setStateTooltip] = React.useState(false)
 
   React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.getDefaultCards()])
@@ -54,6 +58,7 @@ function App() {
     setEditProfilePopupOpen(false)
     setAddPlacePopupOpen(false)
     setEditAvatarPopupOpen(false)
+    setEditRegisterPopupOpen(false)
     setSelectedCard(null)
   }
 
@@ -131,17 +136,33 @@ function App() {
     })
   }
 
-  function userRegister() {
+  function infoTooltipAprove() {
+    setEditRegisterPopupOpen(true)
+    setStateTooltip(true)
+  }
+
+  function infoTooltipCancel() {
+    setEditRegisterPopupOpen(true)
+    setStateTooltip(false)
+  }
+
+  function handleUserRegister(email, password) {
+    apiAuth.userRegister(email, password)
+    .then((res) => {
+      if(res) {
+        setRegisterSuccess(true)
+        infoTooltipAprove()
+      }
+    })
+    .catch(console.error)
+  }
+
+  function handleUserLogin() {
     apiAuth.userRegister()
     .then()
   }
 
-  function userLogin() {
-    apiAuth.userRegister()
-    .then()
-  }
-
-  function userToken() {
+  function handleUserToken() {
     apiAuth.userRegister()
     .then()
   }
@@ -170,7 +191,7 @@ function App() {
                     <Footer />
                   </>
                 } />
-                <Route path='/sign-up' element={<Register titleHeader={'Вход'} redirect='/sign-in'/>}/>
+                <Route path='/sign-up' element={<Register titleHeader={'Вход'} redirect='/sign-in' onClose={closeAllPopups} isOpen={isEditRegisterPopupOpen ? "popup__opened" : ""} onRegister={handleUserRegister}/>} onImageTooltip={isStateTooltip ? Union : UnionCancel}/>
                 <Route path='/sign-in' element={<Login titleHeader={'Регистрация'} redirect='/sign-up'/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
               </Routes>
@@ -180,3 +201,5 @@ function App() {
 }
 
 export default App;
+
+/*разобраться в src*/

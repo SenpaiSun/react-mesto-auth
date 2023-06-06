@@ -1,11 +1,14 @@
-import Union from '../image/Union.png'
+import React from 'react'
 
-export default function InfoTooltip() {
+
+
+export default function InfoTooltip(props) {
+
   return(
-    <div className="popup">
+    <div className={`popup ${props.isOpen}`}>
       <div className="popup__page popup__page-item">
-        <button className="popup__close popup__close-profile" aria-label="Закрытие редактирования профиля" />
-        <img src={Union} className='popup__checkout-image'/>
+        <button className="popup__close popup__close-profile" aria-label="Закрытие редактирования профиля" onClick={props.onClose}/>
+        <img src={props.onImageTooltip} className='popup__checkout-image'/>
         <p className="popup__checkout-auth">Вы успешно зарегистрировались!</p>
       </div>
     </div>

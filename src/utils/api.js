@@ -104,25 +104,25 @@ export class Api {
     .then(res => this._checkError(res))
   }
 
-  userRegister(data) {
+  userRegister(email, password) {
     return fetch(`${this._address}/signup`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify({
-        "password": data.password,
-        "email": data.email
+        "password": password,
+        "email": email
       })
     })
     .then(res => this._checkError(res))
   }
 
-  userLogin(data) {
+  userLogin(email, password) {
     return fetch(`${this._address}/signin`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify({
-        "password": data.password,
-        "email": data.email
+        "password": password,
+        "email": email
       })
     })
     .then(res => this._checkError(res))
@@ -131,7 +131,7 @@ export class Api {
   userToken(data) {
     return fetch(`${this._address}/users/me`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       /*"Authorization" : `Bearer ${token}`*/
       body: JSON.stringify({
         "password": data.password,

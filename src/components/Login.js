@@ -3,6 +3,6 @@ import AuthPopup from "./AuthPopup"
 
 export default function Login(props) {
   return (
-    <AuthPopup title={'Вход'} confirmButton={'Войти'} titleHeader={props.titleHeader} redirect={props.redirect}/>
+    <AuthPopup title={'Вход'} confirmButton={'Войти'} titleHeader={props.titleHeader} redirect={props.redirect} onLogin={props.onLogin}/>
   )
 }

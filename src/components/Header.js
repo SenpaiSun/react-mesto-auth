@@ -8,7 +8,7 @@ export default function Header(props) {
         <img src={logo} className="header__logo" alt="Логотип сервиса Место" />
         <div className="header__container">
           <p className="header__text">{props.email}</p>
-          <Link className="header__text" to={props.redirect}>{props.titleHeader}</Link>
+          <Link className="header__text" to={props.redirect} onClick={props.onClick}>{props.titleHeader}</Link>
         </div>
       </header>
       <hr className="header__line" />

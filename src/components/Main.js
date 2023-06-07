@@ -1,12 +1,10 @@
 import React from "react"
-import api from "../utils/api"
 import Card from "./Card"
 import {CurrentUserContext} from '../contexts/CurrentUserContext'
 
 export default function Main(props) {
 
   const currentUser = React.useContext(CurrentUserContext)
-
   return (
     <main>
       <section className="profile">

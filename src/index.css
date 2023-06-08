@@ -63,3 +63,11 @@
 @import url(./blocks/not-found/__image/not-found__image.css);
 @import url(./blocks/not-found/__return/not-found__return.css);
 @import url(./blocks/not-found/__title/not-found__title.css);
+@import url(./blocks/hamburger-menu/hamburger-menu.css);
+@import url(./blocks/hamburger-menu/__bot/hamburger-menu__bot.css);
+@import url(./blocks/hamburger-menu/__line/hamburger-menu__line.css);
+@import url(./blocks/hamburger-menu/__mid/hamburger-menu__mid.css);
+@import url(./blocks/hamburger-menu/__top/hamburger-menu__top.css);
+@import url(./blocks/header/__reverse/header__reverse.css);
+@import url(./blocks/header/__text-exit/header__text-exit.css);
+@import url(./blocks/header/__padding/header__padding.css);

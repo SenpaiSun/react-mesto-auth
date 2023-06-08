@@ -52,8 +52,8 @@ function App() {
         userToken(token)
         .then((res) => {
           if(res) {
-            setLoggedIn(true)
             setEmail(res.data.email)
+            setLoggedIn(true)
             navigate('/', {replace: true});
           }
         })
@@ -192,12 +192,14 @@ function App() {
       if(res.token) {
         localStorage.setItem('token', res.token)
         setLoggedIn(true)
+        setEmail(email)
         navigate('/', {replace: true});
   } else {
-    return
+    infoTooltipCancel()
   }
 })
     .catch((error) => {
+      infoTooltipCancel()
       console.log(error)
     })
   }
@@ -227,7 +229,7 @@ function App() {
                   </>
                 )} />
                 <Route path='/sign-up' element={<Register titleHeader={'Вход'} redirect='/sign-in' onClose={closeAllPopups} isOpen={isEditRegisterPopupOpen ? "popup__opened" : ""} onRegister={handleUserRegister} onImageTooltip={isStateTooltip}/>}/>
-                <Route path='/sign-in' element={<Login titleHeader={'Регистрация'} redirect='/sign-up' onLogin={handleUserLogin} />}/>
+                <Route path='/sign-in' element={<Login titleHeader={'Регистрация'} redirect='/sign-up' onLogin={handleUserLogin} onImageTooltip={isStateTooltip} isOpen={isEditRegisterPopupOpen ? "popup__opened" : ""} onClose={closeAllPopups}/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
               </Routes>
 

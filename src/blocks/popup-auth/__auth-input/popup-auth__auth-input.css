@@ -10,3 +10,10 @@
   outline: none;
   padding: 0;
 }
+
+@media screen and (max-width: 375px) {
+  .popup-auth__auth-input {
+    width: 260px;
+    margin: 0 auto 30px;
+  }
+}

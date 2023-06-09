@@ -13,3 +13,7 @@
     margin-right: 30px;
   }
 }
+
+.header__text:hover {
+  opacity: 60%;
+}

@@ -33,7 +33,7 @@ export default function Header(props) {
         <HamburgerMenu onClick={handleClickMenu}/>) : (
           <>
             <p className="header__text">{props.email}</p>
-            <Link className={`header__text ${location.pathname === '/' && 'header__text-exit'}`} to={props.redirect} onClick={props.onClick}>{props.titleHeader}</Link>
+            <Link className={`header__text ${location.pathname === '/' ? 'header__text-exit' : ''}`} to={props.redirect} onClick={props.onClick}>{props.titleHeader}</Link>
             </>
           )}
         </div>

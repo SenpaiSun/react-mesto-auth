@@ -34,3 +34,7 @@
   transform: rotate(-45deg) translate(-2.3px, 2px);
   transition-delay: 0.1s;
 }
+
+.hamburger-menu:hover {
+  opacity: 60%;
+}

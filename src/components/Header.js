@@ -13,7 +13,6 @@ export default function Header(props) {
     if(width > 520) {
       setHamburgerMenu(false)
     }
-    console.log(isHamburgerMenu)
   }, [width])
 
   function handleClickMenu() {

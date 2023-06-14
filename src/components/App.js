@@ -33,7 +33,6 @@ function App() {
   const navigate = useNavigate()
 
   React.useEffect(() => {
-    tokenCheck()
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getDefaultCards()])
         .then(([user, cards]) => {
@@ -44,7 +43,7 @@ function App() {
     }
   }, [loggedIn])
 
-  function tokenCheck() {
+  React.useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
       userToken(token)
@@ -56,8 +55,10 @@ function App() {
           }
         })
         .catch(console.error)
+    } else {
+      navigate('/sign-up', { replace: true })
     }
-  }
+  }, [])
 
   function removeToken() {
     if (localStorage.getItem('token')) {

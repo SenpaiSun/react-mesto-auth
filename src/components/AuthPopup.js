@@ -23,7 +23,6 @@ export default function AuthPopup(props) {
     }
     if (props.onLogin) {
       e.preventDefault()
-      console.log('log')
       props.onLogin(emailUser, passwordUser)
     }
   }

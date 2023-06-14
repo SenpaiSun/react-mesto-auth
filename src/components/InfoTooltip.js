@@ -10,7 +10,7 @@ export default function InfoTooltip(props) {
       <div className="popup__page popup__page-item">
         <button className="popup__close popup__close-profile" aria-label="Закрытие редактирования профиля" onClick={props.onClose}/>
         <img src={props.onImageTooltip ? Union : UnionCancel} className='popup__checkout-image' alt="Сообщение о статусе входа/регистрации"/>
-        <p className="popup__checkout-auth">{props.onImageTooltip ? 'Вы успешно зарегистрировались!' : "Что-то пошло не так! Попробуйте ещё раз."}</p>
+        <p className="popup__checkout-auth">{props.text}</p>
       </div>
     </div>
   )
